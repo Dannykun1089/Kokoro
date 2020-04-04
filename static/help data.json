@@ -1,0 +1,38 @@
+{
+    "description": "List of this bot's commands and how to use them\nUse k> [command here] to issue commands to the bot\nNote: [argument] means the argument is optional, and {command} means there are multiple commands that can be used\n",
+    "color": 15139580,
+    "fields": [
+        {
+            "name": "__**'help'**__",
+            "value": "*DMs you this message.*\n```Usage: 'k> help'```"
+        },
+        {
+            "name": "__**'hug' and 'pat'**__",
+            "value": "*Emote commands.*\n```Usage: 'k> {emote command} [@USER]'```"
+        },
+        {
+            "name": "__**'cute'**__",
+            "value": "*Grabs a random image from 4Chan's /c/ board.*\n```Usage: 'k> cute'```"
+        },
+        {
+            "name": "__**'weebm'**__",
+            "value": "*Grabs a random gif or webm off of 4Chan's /c/ board.*\n```Usage: 'k> weebm'```"
+        },
+        {
+            "name": "__**'sauce'**__",
+            "value": "*Uses the saucenao API to attempt to find the source of an image in the given URL.*\n```Usage: 'k> sauce IMAGE_URL'```"
+        },
+        {
+            "name": "__**'avatar'**__",
+            "value": "*Fetches the avatar of the command author if no mention is present, otherwise fetches the avatar of the person mentioned.*\n```Usage: 'k> avatar [@USER]'```"
+        },
+        {
+            "name": "__**'rolf'**__",
+            "value": "*Dispenses a random rolf quote.*\n```Usage: 'k> rolf'```"
+        },
+        {
+            "name": "__**'catch'**__",
+            "value": "*Passu!.*\n```Usage: 'k> catch'```"
+        }
+    ]
+}
