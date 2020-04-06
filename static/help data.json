@@ -27,6 +27,10 @@
             "value": "*Fetches the avatar of the command author if no mention is present, otherwise fetches the avatar of the person mentioned.*\n```Usage: 'k> avatar [@USER]'```"
         },
         {
+            "name": "__**'sunny'**__",
+            "value": "*Creates an 'It's always sunny in philadelphia' intro card with the text coming after the command as the text in the image.\nNOTE: all the arguments in this command are joint together into one string, so dont worry about using spaces.*\n```Usage: 'k> sunny INSERT_TEXT_HERE'```"
+        },
+        {
             "name": "__**'rolf'**__",
             "value": "*Dispenses a random rolf quote.*\n```Usage: 'k> rolf'```"
         },

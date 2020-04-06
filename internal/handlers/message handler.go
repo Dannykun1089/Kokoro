@@ -7,6 +7,8 @@ package handlers
 import (
 	"fmt"
 	"math/rand"
+	"os"
+	"os/exec"
 	"regexp"
 	"strings"
 
@@ -137,6 +139,30 @@ func MessageHandler(session *discordgo.Session, messageCreate *discordgo.Message
 			session.ChannelMessageSend(messageCreate.ChannelID, globals.CommandData.RolfQuotes[rand.Intn(len(globals.CommandData.RolfQuotes))])
 		case "catch":
 			session.ChannelMessageSend(messageCreate.ChannelID, "https://youtu.be/dlAbFOkqxno")
+		case "sunny":
+
+			if len(commandArgs) == 0 {
+				session.ChannelMessageSend(messageCreate.ChannelID, "There isn't a message to put in the image, dummy")
+				return
+			}
+
+			//Join together all the arguments to make a message
+			msg := strings.Join(commandArgs, " ")
+
+			//Run the python script and send the output file
+			session.ChannelMessageSend(messageCreate.ChannelID, "Generating image...")
+			cmd := exec.Command("py", "-3", "static/python/IASIP.py", "-t="+msg)
+			err := cmd.Run()
+			if commandutils.CommandErrorCheck(err, "Error running script", session, messageCreate) {
+				return
+			}
+
+			fp, _ := os.Open("IASIP.png")
+			defer fp.Close()
+			session.ChannelFileSend(messageCreate.ChannelID, "IASIP.png", fp)
+			//Delete the image after sending it because i dont wanna push the generated file to github, and also dont feel like adding a new .gitignore rule
+			os.Remove("IASIP.png")
+
 		default:
 			session.ChannelMessageSend(messageCreate.ChannelID, "This command aint implemented yet mate")
 		}
